@@ -1,13 +1,13 @@
-const API_KEY = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page='
+const API = 'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page='
 const path = `https://image.tmdb.org/t/p/w1280`
-const API_KEY_QUERY = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query='
+const API_QUERY = 'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query='
 
 const container = document.querySelector('.movies')
 const input = document.querySelector('.input-search')
 const form = document.querySelector('.form')
 
 async function getMovies (search) {
-	let fullpath = search ? API_KEY_QUERY + search.trim() : API_KEY
+	let fullpath = search ? API_QUERY + search.trim() : API
 	const response = await fetch(fullpath)
 	if (!response.status === 200) return
 	container.innerHTML = ``
