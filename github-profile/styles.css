@@ -1,0 +1,134 @@
+:root {
+	--bg: #22272e;
+	--primary: #2a3039;
+	--secondary: #373e47;
+	--text-primary: #fff;
+	--text-secondary: #909dab;
+	--text-tertiary: #636e7b;
+	--repo-color: #3a424b;
+}
+
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+	font-size: 16px;
+	background-color: var(--bg);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	height: 100vh;
+	padding: 0 1rem;
+}
+
+.rounded {
+	border-radius: 6px;
+}
+
+.form {
+	background-color: var(--primary);
+	padding: 1rem;
+	width: 100%;
+	display: flex;
+	align-items: center;
+	box-shadow: 0 0 100px rgba(0, 0, 0, 0.1);
+}
+
+.search {
+	background-color: transparent;
+	border: none;
+	outline: none;
+	width: 100%;
+	font-size: 1rem;
+	padding: 0.5rem 0;
+	font-family: inherit;
+	font-weight: 600;
+	color: var(--text-primary);
+}
+
+.serch::placeholder {
+	color: var(--text-tertiary);
+}
+
+.profile {
+	display: none;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+	gap: 2rem;
+	background-color: var(--primary);
+	margin-top: 1rem;
+	padding: 4rem 2rem;
+	color: var(--text-primary);
+	max-width: 100%;
+}
+
+.show {
+	display: flex;
+}
+
+.profile-name {
+	font-size: 1.75rem;
+	font-weight: 600;
+}
+
+.profile-bio {
+	font-weight: 500;
+}
+
+.avatar {
+	border-radius: 9999px;
+	width: 150px;
+	height: auto;
+	border: 5px solid var(--secondary);
+}
+
+.profile-info {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.profile-stats {
+	display: flex;
+	gap: 2rem;
+	font-size: 0.875rem;
+	font-weight: 500;
+	color: var(--text-primary);
+}
+
+.profile-stats span {
+	font-weight: 600;
+	color: var(--text-secondary);
+}
+
+.profile-repos {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;	
+}
+
+.repo {
+	background-color: var(--repo-color);
+	padding: 0.5rem 0.75rem;
+	font-size: 0.75rem;
+	height: auto;
+	text-decoration: none;
+	color: var(--text-primary);
+}
+
+@media screen and (min-width: 760px) {
+	.form {
+		width: 60%;
+	}
+
+	.profile {
+		width: 65%;
+		flex-wrap: nowrap;
+	}
+}

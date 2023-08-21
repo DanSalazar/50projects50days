@@ -1,0 +1,45 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Muli', sans-serif;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+  height: 100vh;
+  width: 80%;
+  margin: auto;
+  gap: 0 12px;
+}
+
+.container .panel {
+  width: 70px;
+  height: 600px;
+  border-radius: 50px;
+  display: flex;
+  align-items: flex-end;
+  padding: 32px;
+  color: #fff;
+  transition: all 800ms ease;
+  cursor: pointer;
+  background-position: center;
+}
+
+.container > .panel h3 {
+  opacity: 0;
+  transition: all 400ms ease;
+  font-size: 1.25em;
+}
+
+.active {
+  flex: 1 0 auto;
+}
+
+.panel.active > h3 {
+  opacity: 1;
+}

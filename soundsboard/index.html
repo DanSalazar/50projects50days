@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Sounds Board</title>
+</head>
+<style type="text/css">
+	body {
+		display: grid;
+		align-items: center;
+		height: 100vh;
+		background: rgb(161, 100, 223);
+	}
+
+	.container {
+		width: 90%;
+		display: flex;
+		justify-content: center;
+		gap: 0 16px;
+		align-items: center;
+	}
+
+	.sounds {
+		width: 160px;
+		height: 120px;
+		background: rebeccapurple;
+		display: grid;
+		place-items: center;
+		color: #fff;
+		font-weight: 600;
+		font-family: sans-serif;
+		font-size: 1.25em;
+		border-radius: 12px;
+		cursor: pointer;
+	}
+
+	@media screen and (max-width: 768px) {
+		.container {
+			flex-direction: column;
+		}
+	}
+</style>
+<body>
+<audio id="applause" src="sounds/applause.mp3"></audio>
+  <audio id="tada" src="sounds/tada.mp3"></audio>
+  <audio id="victory" src="sounds/victory.mp3"></audio>
+  <audio id="wrong" src="sounds/wrong.mp3"></audio>
+
+ 	<div id="buttons">
+ 		
+ 	</div>
+
+	<script type="text/javascript" src="./scripts.js"></script>
+</body>
+</html>

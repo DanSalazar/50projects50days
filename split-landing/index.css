@@ -1,0 +1,60 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: sans-serif;
+	width: 100%;
+}
+
+.container {
+	display: flex;
+	width: 100%;	
+	height: 100vh;
+}
+
+.split {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	padding-top: 12em;
+	flex-direction: column;
+	gap: 24px 0;
+	color: #fff;
+	transition: 1000ms ease;
+}
+
+.split > h2 {
+	font-size: 3.25em;
+}
+
+.split a {
+	border: 3px solid #fff;
+	padding: 24px;
+	width: 220px;
+	text-align: center;
+	text-decoration: none;
+	color: #fff;
+	font-weight: 600;
+}
+
+.left > a:hover { background-color: rgb(108, 92, 231); border: 3px solid transparent; }
+.right > a:hover { background-color: #218c74; border: 3px solid transparent; }
+
+.left {
+	background-image: url('./ps.jpg');
+	background-size: cover;
+	box-shadow: inset 0 0 0 1000px rgba(108, 92, 231, 0.8);
+}
+
+.right {
+	background-image: url('./xbox.jpg');
+	background-size: cover;
+	box-shadow: inset 0 0 0 1000px rgba(0, 0, 0, 0.5);
+}
+
+.left:hover + .right {
+	width: 35%;
+}

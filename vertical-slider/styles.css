@@ -1,0 +1,83 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+	color: #fff;
+	overflow: hidden; 
+}
+
+.slider {
+	display: flex;
+	height: 100vh;
+}
+
+.left-side {
+	width: 35%;
+	background: #252E33;
+	overflow: auto;
+	position: absolute;
+	top: -300vh;
+	transition: transform 0.5s ease;
+	z-index: 1;	
+}
+
+.text-container {
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.text-container h3 {
+	font-size: 2.5rem;
+}
+
+.right-side {
+	width: 100%;
+	height: auto;
+	transition: transform 0.5s ease;
+}
+
+.right-side > div {
+	height: 100vh;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: left center;
+}
+
+.controllers {
+	position: absolute;
+	top: 40%;
+	left: calc(35% - 50px);
+	z-index: 2;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	height: 100px;
+	width: 100px;
+}
+
+.controllers button {
+	border: none;
+	width: 50px;
+	height: 50px;
+	color: #aaa;
+}
+
+.up {
+	border-top-right-radius: 8px;
+	border-bottom-right-radius: 8px;
+	align-self: flex-end;
+}
+
+.down {
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+	align-self: flex-start;
+}

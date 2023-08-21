@@ -1,0 +1,59 @@
+	<!DOCTYPE html>
+	<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="./styles.css">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+		<title>Stats Counter</title>
+	</head>
+	<body>
+		<div class="container">
+			<div class="counter">
+				<i class="fab fa-twitter fa-3x"></i>
+				<span>200</span>
+				<p>Twitter Followers</p>
+			</div>
+			<div class="counter">
+				<i class="fab fa-youtube fa-3x"></i>
+				<span>200</span>
+				<p>Youtube Subscribers</p>
+			</div>
+			<div class="counter">
+				<i class="fab fa-facebook fa-3x"></i>
+				<span>200</span>
+				<p>Facebook Fans</p>
+			</div>
+		</div>
+
+		<script type="text/javascript">
+			const stats = {
+				facebook: 12500,
+				twitter: 5000,
+				youtube: 7500
+			}
+			const counters = document.querySelectorAll('.counter > span')
+
+			let facebook = 0
+			let twitter = 0
+			let youtube = 0
+
+			let i = 0
+			console.log(counters[0].lastChildren)
+			let interval = setInterval(() => {
+				i++
+				facebook += (stats["facebook"] / 100)
+				twitter += (stats["twitter"] / 100)
+				youtube += (stats["youtube"] / 100)
+
+				counters[0].textContent = facebook
+				counters[1].textContent = twitter
+				counters[2].textContent = youtube
+
+				if (facebook === stats["facebook"] && twitter === stats["twitter"] && youtube === stats["youtube"]) {
+					clearInterval(interval)
+				}
+			}, 10)
+		</script>
+	</body>
+	</html>

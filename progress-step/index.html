@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./styles.css">
+  <title>Progress Step</title>
+</head>
+<body>
+  <div class="container">
+    <div class="number-container">
+      <div class="number active">1</div>
+      <div class="number">2</div>
+      <div class="number">3</div>
+      <div class="number">4</div>
+      <div class="status-container">
+        <div class="bar">
+          <div class="status-bar"></div>
+        </div>
+      </div>
+    </div>
+    <div class="buttons-container">
+      <button class="prev" disabled>
+        Prev
+      </button>
+      <button class="next">
+        Next
+      </button>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    let prev = document.querySelector('.prev')
+    let next = document.querySelector('.next')
+    let statusBar = document.querySelector('.status-bar')
+    let status = 0
+    const numbers = document.querySelectorAll('.number')
+
+    prev.addEventListener('click', () => {
+      if (status > 0) {
+        if (next.hasAttribute('disabled')) next.removeAttribute('disabled')
+        numbers[status].classList.remove('active')
+        status-- 
+
+        if (status === 0) {
+          prev.setAttribute('disabled', 'true')
+          statusBar.style.width = '0%'
+          return
+        }
+
+        statusBar.style.width = status * 30 + '%'
+        return
+      }
+    })
+
+    next.addEventListener('click', ({ target }) => {
+      if (status === 3) {
+        return
+      }
+
+      if (prev.hasAttribute('disabled')) prev.removeAttribute('disabled')
+
+      status++
+      numbers[status].classList.add('active')
+      statusBar.style.width = status * 30 + '%'
+      
+
+      if (status === 3) {
+        next.setAttribute('disabled', 'true')
+      }
+    })
+  </script>
+</body>
+</html>

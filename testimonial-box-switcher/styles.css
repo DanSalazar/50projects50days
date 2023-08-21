@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	background-color: #f4f4f4;
+	font-family: 'Montserrat', sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.testimonial-container {
+	background-color: #476ce4;
+	border-radius: 16px;
+	padding: 2.75rem 4.75rem;
+	width: 90%;
+	color: #fff;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 1rem;	
+}
+
+@media screen and (min-width: 768px) {
+	.testimonial-container {
+		width: 70%;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.testimonial-container {
+		width: 60%;
+	}
+}
+
+.testimonial-progress {
+	align-self: flex-start;
+	background-color: #fff;
+	height: 4px;
+  width: 100%;
+  animation: progress-animation 10s linear infinite;
+  transform-origin: left;
+}
+
+.testimonial-text {
+	display: flex;
+	align-items: flex-start;
+	gap: 8px;
+	position: relative;
+}
+
+.testimonial-text .fa-quote {
+	color: rgba(255, 255, 255, 0.3);
+	font-size: 28px;
+	position: absolute;
+}
+
+.testimonial-text .fa-quote-right {
+	left: -40px;
+}
+
+.testimonial-text .fa-quote-left {
+	right: -40px;
+}
+
+
+.testimonial-text p {
+	line-height: 28px;
+}
+
+.testimonial-client {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.testimonial-client-info {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+}
+
+.testimonial-client-info p {
+	font-weight: 600;
+}
+
+img {
+	width: 72px;
+	height: 72px;
+	object-fit: cover;
+	border-radius: 50%;
+}
+
+@media screen and (max-width: 325px) {
+	.testimonial-text .fa-quote {
+		display: none;
+	}
+}
+
+
+@media screen and (min-width: 768px) {
+	.testimonial-container {
+		width: 70%;
+	}
+
+	.testimonial-text p {
+		text-align: justify;
+	}
+}
+
+@media screen and (min-width: 1024px) {
+	.testimonial-container {
+		width: 55%;
+	}
+}
+
+@keyframes progress-animation {
+  0% {
+    transform: scaleX(0);
+  }
+}

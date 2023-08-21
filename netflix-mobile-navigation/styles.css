@@ -1,0 +1,133 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+ul {
+	list-style: none;
+}
+
+li {
+	line-height: 1.5rem;
+}
+
+button {
+	cursor: pointer;
+}
+
+.netflix-logo-main {
+	height: 72px;
+}
+
+.netflix-logo-nav {
+	height: 32px;
+}
+
+.main {
+	text-align: center;
+}
+
+.nav-container {
+	width: 400px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	bottom: 0;
+}
+
+.black {
+	background-color: rgb(34, 31, 31);
+	width: 400px;
+	height: 100%;
+	position: absolute;
+	transform: translateX(-420px);
+	transition: transform ease-in-out 300ms 400ms;
+	z-index: 10;
+}
+
+.black.active {
+	transform: translateX(0px);
+	transition-delay: 0ms;
+}
+
+.red {
+	background-color: rgb(229, 9, 20);
+	width: 380px;
+	height: 100%;
+	z-index: 20;
+	position: absolute;
+	transform: translateX(-400px);
+	transition: transform ease-in-out 300ms 200ms;
+}
+
+.red.active {
+	transform: translateX(0px);
+	transition-delay: 200ms;
+}
+
+.nav {
+	background-color: #fff;
+	width: 360px;
+	position: absolute;
+	height: 100%;
+	z-index: 30;
+	padding: 2rem;
+	transform: translateX(-380px);
+	transition: transform ease-in-out 300ms 0ms;
+}
+
+.nav.active {
+	transform: translateX(0px);
+	transition-delay: 400ms;
+}
+
+.nav-header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 12px;
+}
+
+.nav-close {
+	background-color: transparent;
+	opacity: 0.3;
+	border: none;
+	font-size: 1.25rem;
+}
+
+.nav ul {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.nav ul > li {
+	color: rgb(34, 31, 31);
+}
+
+.nav ul li ul {
+	padding: 1rem;
+}
+
+.open {
+	position: fixed;
+	left: 12px;	
+	top: 12px;
+	font-size: 1.25rem;
+	background-color: transparent;
+	border: none;
+}
+
+
+svg {
+	color: red;
+}

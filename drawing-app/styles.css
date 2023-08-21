@@ -1,0 +1,48 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	font-family: sans-serif;
+}
+
+.app {
+	margin: auto;
+	border: 1px solid #2980b9;
+}
+
+canvas {
+	border: 2px solid #2980b9;
+}
+
+.controls {
+	background-color: #3498db;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 20px;
+	width: 700px;
+}
+
+.controllers {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 8px;
+}
+
+.controller {
+	height: 42px;
+	width: 42px;
+	border: 1px solid black;
+	display: grid;
+	place-items: center;
+	background-color: white;
+	font-size: 18px;
+	font-weight: 600;
+}

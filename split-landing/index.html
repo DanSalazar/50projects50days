@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./index.css">
+	<title>Split Landing</title>
+</head>
+<body>
+	<div class="container">
+    <div class="split left">
+      <h2>Playstation 5</h2>
+      <a href="#" class="btn">Buy Now</a>
+    </div>
+    <div class="split right">
+      <h2>XBox Series X</h2>
+      <a href="#" class="btn">Buy Now</a>
+    </div>
+
+  <script type="text/javascript">
+    const right = document.querySelector('.right')
+    const left = document.querySelector('.left')
+    right.onmouseover = () => left.style.width = '35%'
+    right.onmouseout = () => left.style.width = '100%'
+  </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+:root {
+	--transition: 0.3s ease;
+}
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+	height: 100vh;
+	display: grid;
+	place-items: center;
+	background-color: #ecf0f1;
+}
+
+.generate {
+	padding: 0.75rem 2rem;
+	border-radius: 0.45rem;
+	border: 2px solid #2c3e50;
+	background-color: rgba(255, 71, 87, 0.1);
+	font-weight: 600;
+	font-size: 1rem;
+	color: #2c3e50;
+	transition: box-shadow var(--transition), transform var(--transition);
+	cursor: pointer;
+	outline: none;
+}
+
+.generate:hover {
+	box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+	transform: translateY(-5px);
+}
+
+.toast-container {
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	right: 10px;
+	bottom: 10px;
+	z-index: 1;
+}
+
+.toast {
+	padding: 0.75rem 3rem;
+	border-radius: 0.45rem;
+	border: 2px solid #2c3e50;
+	font-size: 1.25rem;
+	font-weight: 600;
+	animation: fadeIn 0.3s;
+}
+
+.green {
+	background-color: rgba(46, 213, 115, 0.1);
+}
+
+.red {
+	background-color: rgba(255, 71, 87, 0.1);
+}
+
+.yellow {
+	background-color: rgba(254, 202, 87, 0.1);
+}
+
+.purple {
+	background-color: rgba(83, 82, 237, 0.1);
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
+
+@media (prefers-reduced-motion) {
+	.generate {
+		transition: none;
+	}
+	
+	.toast {
+		animation: none;
+	}
+}

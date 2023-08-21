@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Netflix Mobile Navigation</title>
+  </head>
+  <body>
+    <div class="nav-container">
+      <button class="open">
+      <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav">
+        <div class="nav-header">
+          <img src="./netflix.svg" alt="Netflix Logo" class="netflix-logo-nav">
+          <button class="nav-close">
+          <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <ul>
+          <li>TEAMS</li>
+          <li>LOCATIONS</li>
+          <li>
+            LIFE AT NETFLIX
+            <ul>
+              <li>NETFLIX CULTURE MEMO</li>
+              <li>WORK LIFE BALANCE</li>
+              <li>INCLUSION & DIVERSITY</li>
+              <li>BLOG</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="red"></div>
+      <div class="black"></div>
+    </div>
+    <div class="main">
+      <img src="./netflix.svg" alt="Netflix Logo" class="netflix-logo-main">
+      <h4>MOBILE NAVIGATION</h4>
+    </div>
+    <script>
+      const btn = document.querySelector('.open')
+      const close = document.querySelector('.nav-close')
+      const nav = document.querySelector('.nav-container')
+      
+      btn.addEventListener('click', () => {
+      	nav.classList.toggle('nav-active')
+      	document.querySelector('.black').classList.toggle('active')
+      	document.querySelector('.red').classList.toggle('active')
+      	document.querySelector('.nav').classList.toggle('active')
+      })
+      
+      close.addEventListener('click', () => {
+      	nav.classList.toggle('nav-active')
+      	document.querySelector('.black').classList.toggle('active')
+      	document.querySelector('.red').classList.toggle('active')
+      	document.querySelector('.nav').classList.toggle('active')
+      })
+    </script>
+  </body>
+</html>

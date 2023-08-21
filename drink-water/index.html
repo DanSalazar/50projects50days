@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+	<title>Drink Water</title>
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			font-family: 'Montserrat', sans-serif;
+			background: #1B9CFC;
+			color: #fff;
+		}
+
+		.container {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			gap: 2em 0;
+			padding: 1em 0;
+			flex-direction: column;
+		}
+
+		.container > h2 {
+			font-size: 2em;
+		}
+
+		.glass-form {
+			border: 4px solid #3867d6;
+			border-bottom-right-radius: 16px;
+			border-bottom-left-radius: 16px;
+			background: #fff;
+			color: #3867d6;
+		}
+
+		.glass {
+			height: 300px;
+			width: 145px;			
+			overflow: hidden;
+			display: flex;
+			flex-direction: column;
+			border-bottom-right-radius: 36px;
+			border-bottom-left-radius: 36px;
+		}
+
+		.remained {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+			justify-content: center;
+			flex: 1 1 auto;
+			text-align: center;
+		}
+
+		.remained > span {
+			font-weight: 600;
+			font-size: 1.25em;
+		}
+
+		.quantity {
+			background: #74b9ff;
+			width: 100%;
+			height: 0px;
+			display: grid;
+			place-items: center;
+			transition: height 0.3s ease;
+		}
+
+		.quantity > p {
+			font-weight: 600;
+			font-size: 2em;
+			color: #0984e3;
+		}
+
+		.glasses {
+			display: flex;
+			flex-flow: row wrap;
+			justify-content: center;
+			width: 240px;
+			margin: auto;
+			gap: 8px;
+		}
+
+		.mini-glasses {
+			height: 80px;
+			width: 50px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			transition: background 0.2s ease;
+		}
+
+		.active {
+			color: #fff;
+			background-color: #45aaf2;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h2>Drink Water</h2>
+		<p>Goal: 2 Liters</p>
+		<div class="glass glass-form">
+			<div class="remained">
+				<span>2L</span>
+				<p>remained</p>
+			</div>
+			<div class="quantity">
+				<p></p>
+			</div>
+		</div>
+		<p>Select how many glasses of water that you have drank</p>
+		<div class="glasses">
+			<div class="mini-glasses glass-form">250<span>ml</span></div>
+			<div class="mini-glasses glass-form">250<span>ml</span></div>
+			<div class="mini-glasses glass-form">250<span>ml</span></div>
+			<div class="mini-glasses glass-form">250<span>ml</span></div>
+			<div class="mini-glasses glass-form">250 <span>ml</span> </div>
+			<div class="mini-glasses glass-form">250 <span>ml</span></div>
+			<div class="mini-glasses glass-form">250 <span>ml</span></div>
+			<div class="mini-glasses glass-form">250<span>ml</span></div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		const glass = document.querySelector('.glass')
+		let liters = glass.querySelector('.remained > span')
+		let value = 2000
+		let lastIterator = 0
+		const glasses = document.querySelectorAll('.mini-glasses')
+		const quantity = document.querySelector('.quantity')
+		const quantityVal = document.querySelector('.quantity > p')
+
+		function fillGlass (g, add) {
+			if (add && !g.classList.contains('active')) {
+				g.classList.add('active')
+				value -= 250
+				return
+			}
+
+			if (!add && g.classList.contains('active')) {
+				g.classList.remove('active')
+				value += 250
+				return
+			}
+		}
+
+		let firstSelected = false
+		let glassLength = glasses.length - 1
+
+		glasses.forEach((g, i) => {
+			g.onclick = () => {
+				// When the first elements remains and is selected to deactivate
+				if (firstSelected && i === 0) {
+					fillGlass(g, false)
+					firstSelected = false
+					quantity.style.height = '0px'
+					liters.textContent = `${value / 1000}L`
+					return
+				} else {
+					// Loop through the glass elements to determinate if they need to have activate
+					for (let j = 0; j <= glassLength; j++) {
+						let add = j <= i
+						if (i > 0) firstSelected = false
+						else firstSelected = true
+						fillGlass(glasses[j], add)
+					}
+				}
+
+				if (value === 0) glass.querySelector('.remained').style.display = 'none'
+				else glass.querySelector('.remained').style.display = 'flex'
+				let quantityValue = 12.5 * (i + 1)
+				let pexels = 37.5 * (i + 1)
+				quantityVal.textContent = quantityValue + '%'
+				liters.textContent = `${value / 1000}L`
+				quantity.style.height = pexels + 'px'
+			}
+		})
+
+	</script>
+</body>
+</html>

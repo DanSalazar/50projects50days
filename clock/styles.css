@@ -1,0 +1,125 @@
+:root {
+	--bg: #fff;
+	--primary: #fff;
+	--secondary: #353b48;
+	--clock: #2d3436;
+	--color: #2d3436;
+	--minutes: #eb4d4b;
+	--text-color: #fff;
+}
+
+body[data-theme="dark"] {
+	--bg: #000;
+	--primary: #2d3436;
+	--secondary: #fff;
+	--color: #fff;
+	--text-color: #000;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 12px 0;
+	height: 100vh;
+	background-color: var(--bg);
+}
+
+button {
+	background-color: var(--secondary);
+	color: var(--text-color);
+	border: 0;
+	border-radius: 8px;
+	font-family: inherit;
+	padding: 8px 12px;
+}
+
+.clock {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 200px;
+	width: 200px;
+}
+
+
+.medium {
+	border: 2px solid red;
+	background-color: var(--color);
+	padding: 2px;
+	border-radius: 50%;
+	position: relative;
+	display: grid;
+	place-items: center;
+}
+
+.medium > div {
+	transition: transform 0.3s 50ms linear;
+}
+
+
+@media (prefers-reduced-motion) {
+	.medium > div {
+		transition: none;
+	}
+}
+
+.hours {
+	width: 1px;
+	height: 80px;
+	border: 1px solid var(--color);
+	background-color: var(--color);
+	position: absolute;
+	transform-origin: bottom;
+	bottom: 0;
+	z-index: -1;
+}
+
+.minutes {
+	width: 1px;
+	height: 100px;
+	border: 1px solid var(--color);
+	background-color: var(--color);
+	position: absolute;
+	bottom: 0;
+	z-index: -2;
+	transform-origin: bottom;
+}
+
+.seconds {
+	width: 1px;
+	height: 100px;
+	border: 1px solid red;
+	background-color: red;
+	position: absolute;
+	bottom: 0;
+	z-index: -3;
+	transform-origin: bottom;
+}
+
+.status {
+	color: var(--color);
+}
+
+.status span {
+	text-align: center;
+	text-transform: uppercase;
+	color: #a3a0a0;
+}
+
+.status span > span {
+	font-size: 12px;
+	padding: 6px 10px;
+	color: var(--bg);
+	background-color: var(--color);
+	border-radius: 50%;
+}
+
+.status h2 {
+	font-size: 48px;
+	font-weight: 700;
+}

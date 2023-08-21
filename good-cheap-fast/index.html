@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+	<title>Good Cheap Fast</title>
+	<style>
+		body {
+			margin: 0;
+			font-family: 'Roboto', sans-serif;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+		}
+
+		.toggle {
+			display: flex;
+			margin: 16px 0;
+			gap: 12px;
+			align-items: center;
+		}
+
+		.t {
+			height: 40px;
+			width: 80px;
+			box-sizing: border-box;
+			border-radius: 24px;
+			padding: 0 3px;
+			background-color: #d0d0d0;
+			display: flex;
+			align-items: center;
+			transition: backgroud-color 300ms ease;
+			cursor: pointer;
+		}
+
+		.active {
+			background-color: #8e44ad;
+		}
+
+		.ball {
+			background-color: #fff;
+			border-radius: 50%;
+			width: 34px;
+			height: 34px;
+		}
+
+		.on-ball {
+			animation: toggle 300ms linear forwards;
+		}
+
+		.off-ball {
+			animation: toggleOff 300ms linear forwards;
+		}
+
+		@keyframes toggleOff {
+			0% {
+				transform: translateX(calc(80px - (34px + 6px))) scale(1);
+			}
+
+			50% {
+				transform: translateX(20px) scale(1.2);
+			}
+
+			100% {
+				transform: translateX(0px) scale(1);
+			}
+		}
+
+		@keyframes toggle {
+			0% {
+				transform: translateX(0px) scale(1);
+			}
+
+			50% {
+				transform: translateX(20px) scale(1.2);
+				transform: scale(1.2);
+			}
+
+			100% {
+				transform: translateX(calc(80px - (34px + 6px))) scale(1);
+			}
+		}
+</style>
+</head>
+<body>
+	<h2>How do you want your project to be?</h2>
+
+	<div class="controls">
+		<div class="toggle">
+			<input type="checkbox" id="good" style="opacity: 0;">
+			<label class="t" for="good">
+				<div class="ball"></div>
+			</label>
+			<span>Good</span>
+		</div>
+		<div class="toggle">
+			<input type="checkbox" id="cheap" style="opacity: 0;">
+			<label class="t" for="cheap">
+				<div class="ball"></div>
+			</label>
+			<span>Cheap</span>
+		</div>
+		<div class="toggle">
+			<input type="checkbox" id="fast" style="opacity: 0;">
+			<label class="t" for="fast">
+				<div class="ball"></div>
+			</label>
+			<span>Fast</span>
+		</div>
+	</div>
+	<script>
+		const toggles = document.querySelectorAll('.t')
+		const good = document.querySelector('#good')
+		const cheap = document.querySelector('#cheap')
+		const fast = document.querySelector('#fast')
+
+		const handleToggle = (toggle, input) => {
+			if (!input.checked) {
+				toggle.classList.add('active')
+				toggle.children[0].classList.add('on-ball')
+				toggle.children[0].classList.remove('off-ball')
+			} else {
+				toggle.classList.remove('active')
+
+				toggle.children[0].classList.contains('on-ball') 
+					&& toggle.children[0].classList.add('off-ball')
+
+				toggle.children[0].classList.remove('on-ball')
+			}
+		}
+		
+		const validate = (input) => {
+			if ((cheap.checked && good.checked) && input.id === 'fast') {
+				handleToggle(cheap.nextSibling.nextSibling, cheap)
+				return cheap.checked = false
+			}
+
+			if ((cheap.checked && fast.checked) && input.id === 'good') {
+				handleToggle(fast.nextSibling.nextSibling, fast)
+				return fast.checked = false
+			}
+
+			if ((good.checked && fast.checked) && input.id === 'cheap') {
+				handleToggle(good.nextSibling.nextSibling, good)
+				return good.checked = false
+			}
+		}
+
+		toggles.forEach(toggle => toggle.addEventListener('click', () => {
+			const input = toggle.previousSibling.previousSibling 
+
+			validate(input)
+			handleToggle(toggle, input)
+		}))
+</script>
+</body>
+</html>

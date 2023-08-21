@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./styles.css">
+	<title>Form Wave</title>
+</head>
+<body>
+	<form class="form">
+		<h2>Please Login</h2>
+		<div class="container">
+			<input type="text" name="email">
+			<label class="label-1">
+				<span>E</span>
+				<span>m</span>
+				<span>a</span>
+				<span>i</span>
+				<span>l</span>
+			</label>
+		</div>
+		<div class="container">
+			<input type="text" name='password'>
+			<label class="label-2">
+				<span>P</span>
+				<span>a</span>
+				<span>s</span>
+				<span>s</span>
+				<span>w</span>
+				<span>o</span>
+				<span>r</span>
+				<span>d</span>
+			</label>
+		</div>
+		<button type="submit">
+			Login
+		</button>
+		<p>Don't have account? <a href="#">Register Here</a></p>
+	</form>
+
+	<script type='text/javascript'>
+		const labelOne = document.querySelectorAll('.label-1 > span')
+		const labelTwo = document.querySelectorAll('.label-2 > span')
+
+		labelOne.forEach((el, i) => {
+			el.style.transitionDelay = 80 * (i + 1) +'ms'
+		})
+
+		labelTwo.forEach((el, i) => {
+			el.style.transitionDelay = 80 * (i + 1) +'ms'
+		})
+	</script>
+</body>
+</html>

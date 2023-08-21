@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Hoverboard</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			background-color: #111;
+			display: grid;
+			place-items: center;
+			height: 100vh;
+		}
+
+		.board {
+			display: grid;
+			grid-template-columns: repeat(20, 1fr);
+			gap: 4px;
+		}
+
+		.cell {
+			background-color: #1d1d1d;
+			border-radius: 2px;
+			height: 16px;
+			width: 16px;
+			transition: all 2s linear;
+		}
+
+		.cell:hover {
+			transition-duration: 0s;
+		}
+	</style>
+</head>
+<body>
+	<div class="board">
+	</div>
+
+	<script src="./index.js"></script>
+</body>
+</html>

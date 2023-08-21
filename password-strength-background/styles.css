@@ -1,0 +1,79 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+input, button {
+	font-family: inherit;
+}
+
+body {
+	font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+	display: grid;
+	place-items: center;
+	height: 100vh;
+}
+
+.background {
+	background: url('https://images.unsplash.com/photo-1556745757-8d76bdb6984b')
+    no-repeat center center/cover;
+  position: fixed;
+  z-index: -1;
+  top: -20px;
+  bottom: -20px;
+  left: -20px;
+  right: -20px;
+  filter: blur(20px);
+}
+
+.container {
+	background-color: #fff;
+	padding: 2.5rem;
+	border-radius: 8px;
+	text-align: center;
+	width: 420px;
+	box-shadow: 0 0 16px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+	font-size: 1.875rem;
+	font-weight: 400;
+}
+
+.container > p {
+	font-size: 0.875rem;
+	margin-top: 4px;
+}
+
+.inputs-container {
+	margin-top: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+	align-items: flex-start;
+}
+
+input {
+	border: 1px solid #e2e8f0;
+	padding: 0.75rem;
+	align-self: stretch;
+	border-radius: 4px;
+	font-size: 1rem;
+}
+
+input::placeholder {
+	color: #b2bec3;
+}
+
+.submit {
+	cursor: pointer;
+	background-color: #000;
+	border: none;
+	color: #fff;
+	padding: 0.75rem;
+	align-self: stretch;
+	font-size: 1rem;
+	margin-top: 16px;
+	border-radius: 4px;
+}

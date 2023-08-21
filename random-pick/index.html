@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Random Pick</title>
+	<style type="text/css">
+		* {
+			box-sizing: border-box;
+			margin: 0;
+			padding: 0;
+		}
+
+		body {
+			font-family: sans-serif;
+			background:dodgerblue;
+		}
+
+		h3 {
+			color: #fff;
+		}
+
+		.container {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: column;
+			height: 100vh;
+			gap: 10px;
+		}
+
+		.choices {
+			display: flex;
+			gap: 8px 12px;
+			max-width: 30%;
+			flex-flow: row wrap;
+		}
+
+		.choices > div {
+			background: orange;
+			color: #fff;
+			padding: 12px;
+			border-radius: 9999px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h3>Enter all of the choices divided by a comma (',').
+Press enter when you're done</h3>
+	<textarea rows="10" cols="20"></textarea>
+	<div class="choices">
+	</div>
+	</div>
+
+	<script type="text/javascript">
+		const container = document.querySelector('.choices')
+		let lastHtml = ``
+		let lastValue = ''
+
+		function selectRandomChoice () {
+			let length = container.children.length
+			let iterator = 0
+			let last
+			let timer = setInterval(function () {
+				let random = Math.round(Math.random() * (length - 1))
+				if (last) last.style.backgroundColor = ''
+
+				last = container.children[random]
+				last.style.backgroundColor = 'darkviolet'
+				iterator++
+
+				if (iterator === 40) {
+					clearInterval(timer)
+				}
+			}, 90)
+		}
+
+		function onChange (e) {
+			let value = e.target.value
+
+			if (value[value.length - 1] === ',') {
+				const html = `<div>${lastValue}</div>`
+				lastHtml += html
+				this.value = ''
+				container.innerHTML = lastHtml
+				return
+			}
+
+			lastValue = value
+			const html = `<div>${value}</div>`
+			container.innerHTML = lastHtml + html
+		}
+
+		const text = document.querySelector('textarea')
+		text.addEventListener('input', onChange)
+		window.addEventListener('keyup', function (e) {
+			if (e.key === 'Enter') {
+				selectRandomChoice()
+				return
+			}
+		})
+
+
+	</script>
+</body>
+</html>

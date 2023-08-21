@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blurry Animation</title>
+</head>
+<style type="text/css">
+	* {
+		box-sizing: border-box;
+		margin: 0;
+		overflow: hidden;
+		padding: 0;
+	}
+
+	.container {
+		background-image: url('https://images.unsplash.com/photo-1576161787924-01bb08dad4a4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2104&q=80');
+		background-size: cover;
+		height: 100vh;
+		position: absolute;
+		top: -30px;
+		left: -30px;
+		width: calc(100vw + 60px);
+		height: calc(100vh + 60px);
+		z-index: -1;
+	}
+
+	.progress {
+		font-size: 4rem;
+		color: #fff;
+		z-index: 5;
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		font-family: sans-serif;
+		transform: translate(-50%, -50%);
+	}
+</style>
+<body>
+	<div class="container" style="filter: blur(25px);">
+	</div>
+	<div class="progress" style="opacity: 100%;">0%</div>
+
+	<script>
+		const progress = document.querySelector('.progress')
+		const container = document.querySelector('.container')
+		let i = 0
+		let blur = 25
+		let opacity = 100
+		let timer = 60
+
+		let interval = setInterval(() => {
+			if (i === 100) {
+				clearInterval(interval)
+				return
+			}
+
+			if (i > 0 && i % 10 === 0 && timer > 0) {
+				console.log('timer', timer, i)
+				timer -= 20
+			}
+
+			blur -= 0.4
+			blur > 0 && (container.style.filter = 'blur(' + blur + 'px)')
+			i++
+			opacity--
+
+			progress.textContent = i + '%'
+			progress.style.opacity = opacity + '%'
+		}, timer)
+	</script>
+</body>
+</html>

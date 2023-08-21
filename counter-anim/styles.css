@@ -1,0 +1,43 @@
+* {
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: sans-serif;
+	background-color: #8e44ad;
+	display: flex;
+	align-items: center;
+	height: 100vh;
+	justify-content: center;
+}
+
+.container {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	text-align: center;
+	color: #fff;
+	gap: 0 72px;
+}
+
+.counter {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 12px 0;
+}
+
+.counter i {
+	font-size: 3em;
+}
+
+.counter span {
+	font-size: 4em;
+	font-weight: 400;
+}
+
+.counter p {
+	letter-spacing: 2px;
+}

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Image Carousel</title>
+	<style>
+		* {
+			box-sizing: border-box;
+			padding: 0;
+			margin: 0;
+		}
+
+		body {
+			display: grid;
+			place-items: center;
+			height: 100vh;
+		}
+
+		img {
+			min-width: 500px;
+			object-fit: cover;
+			height: auto;
+		}
+
+		.carousel {
+			overflow: hidden;
+			box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+		}
+
+		.images {
+			display: flex;
+			width: 500px;
+			height: 500px;
+			transition: transform 500ms ease;
+		}
+
+		.buttons {
+			width: 100%;
+			display: flex;
+			gap: 0.25rem;
+		}
+
+		.btn {
+			background-color: rebeccapurple;
+			border: none;
+			color: #fff;
+			padding: 6px 0;
+			width: 100%;
+			cursor: pointer;
+		}
+
+		.btn:hover {
+  		opacity: 0.9;
+		}
+	</style>
+</head>
+<body>
+	<div class="carousel">
+		<div class="images" style="transform: translateX(0px);">
+			<img src="https://images.unsplash.com/photo-1599394022918-6c2776530abb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1458&q=80" alt="First Image">
+			<img src="https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="Second Image">
+			<img src="https://images.unsplash.com/photo-1599423300746-b62533397364?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80" alt="Third Image">
+			<img src="https://images.unsplash.com/photo-1599561046251-bfb9465b4c44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1492&q=80" alt="Fourth Image">
+		</div>
+		<div class="buttons">
+			<button class="btn prev">
+				Prev
+			</button>
+			<button class="btn next">
+				Next
+			</button>
+		</div>
+	</div>
+
+	<script>
+		const imagesContainer = document.querySelector('.images')
+		const quantity = imagesContainer.children.length - 1
+		const prev = document.querySelector('.prev')
+		const next = document.querySelector('.next')
+		let slide = 0
+		let intervalSlide = 0
+
+		const prevSlide = () => {
+			if (slide === 0) {
+				slide = -500 * quantity
+				return imagesContainer.style.transform = `translateX(${slide})`	
+			}
+
+			slide += 500
+			imagesContainer.style.transform = `translateX(${slide}px)`
+		}
+
+		const nextSlide = () => {
+			if (slide === -500 * quantity) {
+				slide = 0
+				return imagesContainer.style.transform = `translateX(${slide}px)`	
+			}
+
+			slide -= 500
+			imagesContainer.style.transform = `translateX(${slide}px)`
+		}
+
+
+		prev.addEventListener('click', prevSlide)
+		next.addEventListener('click', nextSlide)
+
+		setInterval(() => {
+			if (intervalSlide !== slide) intervalSlide = slide
+			else nextSlide()
+		}, 2000)
+	</script>
+</body>
+</html>

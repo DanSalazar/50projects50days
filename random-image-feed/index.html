@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Random Image Feed</title>
+	<style>
+		* {
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		body {
+			font-family: -apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+			padding: 1rem;
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			align-items: center;
+			gap: 1rem;
+		}
+
+		img {
+			max-width: 100%;
+			height: auto;
+		}
+
+		.images-container {
+			display: flex;
+			justify-content: center;
+			flex-wrap: wrap;
+			gap: 1rem;
+			width: 95%;
+		}
+	</style>	
+</head>
+<body>
+	<h1>Random Image Feed</h1>
+	<div class="images-container">
+		
+	</div>
+
+	<script>
+		const container = document.querySelector('.images-container')
+		const unsplashURL = 'https://source.unsplash.com/random'
+		const IMAGES_NUMBER = 15
+
+		const getRandomNumSize = () => Math.round(Math.random() * 20) + 300
+
+		for(let i = 0; i < IMAGES_NUMBER; i++) {
+		  const img = document.createElement('img')
+		  const size = `${getRandomNumSize()}x${getRandomNumSize()}`
+		  img.src = `${unsplashURL}/${size}`
+		  container.appendChild(img)
+		}
+	</script>
+</body>
+</html>
